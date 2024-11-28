@@ -3,13 +3,20 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Admin Dashboard</title>
+    <title>Login</title>
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootswatch@4.5.2/dist/cosmo/bootstrap.min.css"
         integrity="sha384-5QFXyVb+lrCzdN228VS3HmzpiE7ZVwLQtkt+0d9W43LQMzz4HBnnqvVxKg6O+04d" crossorigin="anonymous">
     <style>
+        /* Reset beberapa default styling */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
         body {
             font-family: Arial, sans-serif;
-            background-color: #f8f9fa;
+            background-color: #f4f7fc;
             display: flex;
             justify-content: center;
             align-items: center;
@@ -17,49 +24,74 @@
             margin: 0;
         }
 
-        .container {
-            text-align: center;
+        form {
             background-color: white;
-            padding: 30px;
+            padding: 20px;
             border-radius: 8px;
             box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-            max-width: 500px;
             width: 100%;
+            max-width: 400px;
         }
 
         h1 {
-            color: #343a40;
-            font-size: 24px;
+            text-align: center;
             margin-bottom: 20px;
+            font-size: 24px;
         }
 
-        p {
-            font-size: 16px;
-            color: #6c757d;
-        }
-
-        a {
-            display: inline-block;
-            margin-top: 20px;
-            padding: 10px 20px;
-            background-color: #007bff;
-            color: white;
-            text-decoration: none;
+        input[type="email"], input[type="password"] {
+            width: 100%;
+            padding: 12px;
+            margin-bottom: 16px;
+            border: 1px solid #ddd;
             border-radius: 4px;
             font-size: 16px;
+            transition: border-color 0.3s ease;
+        }
+
+        input[type="email"]:focus, input[type="password"]:focus {
+            border-color: #007bff;
+            outline: none;
+        }
+
+        input[type="submit"] {
+            width: 100%;
+            padding: 12px;
+            background-color: #007bff;
+            color: white;
+            border: none;
+            border-radius: 4px;
+            font-size: 16px;
+            cursor: pointer;
             transition: background-color 0.3s ease;
         }
 
-        a:hover {
+        input[type="submit"]:hover {
             background-color: #0056b3;
+        }
+
+        a {
+            display: block;
+            text-align: center;
+            margin-top: 12px;
+            font-size: 14px;
+            color: #007bff;
+            text-decoration: none;
+            transition: color 0.3s ease;
+        }
+
+        a:hover {
+            color: #0056b3;
         }
     </style>
 </head>
 <body>
-    <div class="container">
-        <h1>Selamat Datang, Admin</h1>
-        <p>Halaman ini adalah dashboard sederhana untuk admin.</p>
-        <a href="../pertemuan-6/index.php">Logout</a>
-    </div>
+    <form action="login.php" method="post">
+        <h1>Login</h1>
+        <input type="email" name="email" placeholder="Masukkan email Anda" required>
+        <input type="password" name="password" placeholder="Masukkan password Anda" required>
+        <input type="submit" value="Login" name="submit">
+        <a href="register.php">Belum punya akun? Daftar di sini</a>
+    </form>
 </body>
 </html>
